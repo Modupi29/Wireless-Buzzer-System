@@ -1,18 +1,18 @@
 import socket
 
-host = "255.255.255.255"
-port = 5005
+host = "172.21.12.32"
+port = 12345
 buffer_size = 1024
 
 client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-client.settimeout(0.1)
+client.settimeout(0.5)
 
 while True:
     command = input("Enter command (ACTIVATE/DEACTIVATE or EXIT to quit): ").strip().upper()
     
     if command == "EXIT":
         print("Exiting client...")
-        break
+        message="EXIT"
     
     elif command == "ACTIVATE":
         print("Sending command: ACTIVATE")
@@ -39,4 +39,3 @@ while True:
 
 print("Closing the connection...")
 client.close() 
-
